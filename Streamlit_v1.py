@@ -4,21 +4,20 @@ import json
 import streamlit as st
 from streamlit_folium import folium_static
 
-Perimetro = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/Perimetro.geojson")
-AreasDelParque = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/AreasDelParque.geojson")
-Arroyo = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/Arroyo.geojson")
-CallePrincipal = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/CallePrincipal.geojson")
-CallesSecundarias = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/CallesSecundarias.geojson")
-Empresas = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/Empresas.geojson")
-Parcelas = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/Parcelas.geojson")
-SuperficiesCubiertas = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/SuperficiesCubiertas.geojson")
-Vegetacion = gpd.read_file("/opt/render/project/src/ITUZAINGO/GeoJSON/Vegetacion.geojson")
+Perimetro = gpd.read_file("./ITUZAINGO/GeoJSON/Perimetro.geojson")
+AreasDelParque = gpd.read_file("./ITUZAINGO/GeoJSON/AreasDelParque.geojson")
+Arroyo = gpd.read_file("./ITUZAINGO/GeoJSON/Arroyo.geojson")
+CallePrincipal = gpd.read_file("./ITUZAINGO/GeoJSON/CallePrincipal.geojson")
+CallesSecundarias = gpd.read_file("./ITUZAINGO/GeoJSON/CallesSecundarias.geojson")
+Empresas = gpd.read_file("./ITUZAINGO/GeoJSON/Empresas.geojson")
+Parcelas = gpd.read_file("./ITUZAINGO/GeoJSON/Parcelas.geojson")
+SuperficiesCubiertas = gpd.read_file("./ITUZAINGO/GeoJSON/SuperficiesCubiertas.geojson")
+Vegetacion = gpd.read_file("./ITUZAINGO/GeoJSON/Vegetacion.geojson")
 
 mapa = folium.Map(location=[-27.619921, -56.843410], zoom_start=14)
 
 capas = [
     ("Perimetro", Perimetro, {'color': 'red', 'fillColor': 'transparent', 'weight': 2}),
-    ("AreasDelParque", AreasDelParque, {'color': 'red', 'fillColor': 'transparent', 'weight': 2}),
     ("Arroyo", Arroyo, {'color': 'blue', 'fillColor': 'blue', 'weight': 0.5}),
     ("Parcelas", Parcelas, {'color': 'orange', 'fillColor': 'yellow', 'weight': 2}),
     ("CallePrincipal", CallePrincipal, {'color': 'red', 'fillColor': 'red', 'weight': 2}),
@@ -33,7 +32,7 @@ for nombre, capa, estilo in capas:
     folium_layer.add_to(mapa)
     folium_layers[nombre] = folium_layer
 
-with open('/opt/render/project/src/ITUZAINGO/GeoJSON/Empresas.geojson', 'r') as geojson_file:
+with open('./ITUZAINGO/GeoJSON/Empresas.geojson', 'r') as geojson_file:
     data = json.load(geojson_file)
     empresas_features = data['features']
 
