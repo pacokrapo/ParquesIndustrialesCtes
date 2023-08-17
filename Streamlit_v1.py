@@ -3,7 +3,6 @@ import geopandas as gpd
 import json
 import streamlit as st
 from streamlit_folium import folium_static
-from folium.plugins import MarkerCluster
 
 Perimetro = gpd.read_file("ITUZAINGO\GeoJSON\Perimetro.geojson")
 AreasDelParque = gpd.read_file("ITUZAINGO\GeoJSON\AreasDelParque.geojson")
