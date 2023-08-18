@@ -74,16 +74,21 @@ def main():
         else:
             continue
 
+
     if "Empresas" in elementos_seleccionados:
         for feature in empresas_features:
             nombre = feature['properties']['EMPRESA']
             estilo = {'color': 'red', 'fillColor': 'transparent', 'weight': 2}
+            
+            # Crear contenido HTML del popup con un botón
+            popup_content = f"Empresa: {nombre}"
+            
             geojson_layer = folium.GeoJson(
                 feature,
                 name=nombre,
                 style_function=lambda x: estilo,
                 tooltip=folium.GeoJsonTooltip(fields=['EMPRESA'], labels=True),
-                popup=folium.Popup(parse_html=True, max_width=300).add_child(folium.Html(popup_content(feature['properties']), script=True))
+                popup=folium.Popup(html=popup_content, parse_html=True, max_width=300)
             )
             geojson_layer.add_to(mapa)
 
@@ -104,7 +109,7 @@ def main():
     icon = folium.Icon(color=icon_color)
 
     # Agregar el marcador al mapa con el ícono personalizado
-    marker = folium.Marker(location=[latitude, longitude], popup="Información de la empresa: " + selected_marker, icon=icon)
+    marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + selected_marker, icon=icon)
     marker.add_to(mapa)
 
     folium_static(mapa)
