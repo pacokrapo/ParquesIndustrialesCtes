@@ -3,6 +3,7 @@ import geopandas as gpd
 import json
 import streamlit as st
 from streamlit_folium import folium_static
+import pandas as pd
 
 Perimetro = gpd.read_file("./ITUZAINGO/GeoJSON/Perimetro.geojson")
 AreasDelParque = gpd.read_file("./ITUZAINGO/GeoJSON/AreasDelParque.geojson")
@@ -30,8 +31,8 @@ def main():
         ("AreasDelParque", AreasDelParque, {'color': 'red', 'fillColor': 'transparent', 'weight': 2}),
         ("Arroyo", Arroyo, {'color': 'blue', 'fillColor': 'blue', 'weight': 0.5}),
         ("Parcelas", Parcelas, {'color': 'orange', 'fillColor': 'yellow', 'weight': 2}),
-        ("CallePrincipal", CallePrincipal, {'color': 'red', 'fillColor': 'red', 'weight': 2}),
-        ("CallesSecundarias", CallesSecundarias, {'color': 'red', 'fillColor': 'red', 'weight': 2}),
+        ("CallePrincipal", CallePrincipal, {'color': 'red', 'fillColor': 'black', 'weight': 2}),
+        ("CallesSecundarias", CallesSecundarias, {'color': 'red', 'fillColor': 'black', 'weight': 2}),
         ("SuperficiesCubiertas", SuperficiesCubiertas, {'color': 'blue', 'fillColor': 'blue', 'weight': 2}),
         ("Vegetacion", Vegetacion, {'color': 'green', 'fillColor': 'green', 'weight': 0.5})
     ]
@@ -105,8 +106,7 @@ def main():
     longitude = selected_feature['geometry']['coordinates'][0]
 
     # Cambiar el color del pin según la empresa seleccionada
-    icon_color = "red" if selected_marker == "Empresa1" else "blue" if selected_marker == "Empresa2" else "green"
-    icon = folium.Icon(color=icon_color)
+    icon = folium.Icon(color="green")
 
     # Agregar el marcador al mapa con el ícono personalizado
     marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + selected_marker, icon=icon)
@@ -116,7 +116,12 @@ def main():
 
     st.header("Información de la Empresa")
 
-    st.table(selected_feature['properties'])
+    df = pd.DataFrame(selected_feature)
+    df2 = df["properties"]
+
+    df2.name = "Datos"
+    df2.dropna(inplace=True)
+    st.table(df2)
 
 
 if __name__ == "__main__":
