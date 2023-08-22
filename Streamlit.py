@@ -84,6 +84,7 @@ def main():
             # Crear contenido HTML del popup con un botón
             popup_content = f"Empresa: {nombre}"
             
+            
             geojson_layer = folium.GeoJson(
                 feature,
                 name=nombre,
@@ -95,9 +96,10 @@ def main():
 
 
 
+    empresas_nombres = [feature['properties']['EMPRESA'] for feature in empresas_features]
+    empresas_nombres_ordenadas = sorted(empresas_nombres)
 
-
-    selected_marker = st.selectbox("Selecciona una empresa:", [feature['properties']['EMPRESA'] for feature in empresas_features])
+    selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_ordenadas)
 
     selected_feature = next(feature for feature in empresas_features if feature['properties']['EMPRESA'] == selected_marker)
 
