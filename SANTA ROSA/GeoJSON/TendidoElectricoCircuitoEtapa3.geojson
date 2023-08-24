@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "TendidoElectricoCircuitoEtapa3",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.067687230703683, -28.23149926714256 ], [ -58.062632940924253, -28.237031853708665 ], [ -58.062615680970545, -28.237357937047292 ], [ -58.062795951598233, -28.237413692129767 ], [ -58.062571572199914, -28.238162159052308 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.064863310498694, -28.236078941245857 ], [ -58.063570731742729, -28.23577650802898 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.067298881745103, -28.234085231612941 ], [ -58.065469326651346, -28.233656072294103 ] ] ] } }
+]
+}

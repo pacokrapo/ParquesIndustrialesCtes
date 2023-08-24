@@ -1,0 +1,20 @@
+{
+"type": "FeatureCollection",
+"name": "RedDeAguaCañerias",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.063763743656196, -28.238436276928226 ], [ -58.065609383039728, -28.236422025692004 ] ], [ [ -58.06560937172241, -28.23642204563318 ], [ -58.069673528754763, -28.231986596423351 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.067954310727572, -28.239375374856788 ], [ -58.063763528700164, -28.238436087554941 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.067953020991631, -28.239375374856799 ], [ -58.073770589969556, -28.233017601862375 ], [ -58.071905725823036, -28.232560466093727 ], [ -58.070057440157115, -28.234602724886177 ], [ -58.071911220635457, -28.235048145899132 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.069734146344587, -28.237428238232553 ], [ -58.065610430586659, -28.236422273157785 ], [ -58.065609360405091, -28.236422025692004 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.069917288850142, -28.237222576716412 ], [ -58.065775516788854, -28.236234411159053 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070060019629082, -28.234601967365865 ], [ -58.067774674110971, -28.234060322930414 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.071632207757396, -28.232490358591424 ], [ -58.067821056664265, -28.236722008232668 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.071771929152455, -28.235192831576409 ], [ -58.067655351035761, -28.234188138283219 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.071905725823839, -28.232560466093911 ], [ -58.069673515320105, -28.23198659642334 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070058299981163, -28.234601588605717 ], [ -58.068110565348512, -28.236791586471305 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.069973191040802, -28.232066969749866 ], [ -58.068069172474033, -28.234130186518708 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null, "DIAMETRO": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.067953855623884, -28.233863601921772 ], [ -58.067712660981549, -28.233822442339022 ] ] ] } }
+]
+}

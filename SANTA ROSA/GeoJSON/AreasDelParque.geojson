@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "AreasDelParque",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 38, "AREAS": "SERVICIO DEL PARQUE" }, "geometry": { "type": "Point", "coordinates": [ -58.065233941518429, -28.23838431363199 ] } },
+{ "type": "Feature", "properties": { "id": 38, "AREAS": "B DEPEC" }, "geometry": { "type": "Point", "coordinates": [ -58.064343647787069, -28.23838431363199 ] } },
+{ "type": "Feature", "properties": { "id": 39, "AREAS": "ROTONDA" }, "geometry": { "type": "Point", "coordinates": [ -58.064977416205998, -28.23700174468593 ] } },
+{ "type": "Feature", "properties": { "id": 43, "AREAS": "FUTURO ESTACIONAMIENTO" }, "geometry": { "type": "Point", "coordinates": [ -58.065535736003625, -28.23911547265838 ] } },
+{ "type": "Feature", "properties": { "id": 44, "AREAS": "SERVICIOS" }, "geometry": { "type": "Point", "coordinates": [ -58.063136469846256, -28.238623602592252 ] } },
+{ "type": "Feature", "properties": { "id": 45, "AREAS": "SERVICIO DE ENERGIA" }, "geometry": { "type": "Point", "coordinates": [ -58.061974561078209, -28.238038673075174 ] } }
+]
+}

@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "CallesSecundarias",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.109361032612199, -29.158356609773346 ], [ -58.108421124099848, -29.152955639089651 ], [ -58.104133835785959, -29.153467861101319 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.106293303496486, -29.153210292661445 ], [ -58.107250747615382, -29.15860118686598 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.108808911513783, -29.155161303116198 ], [ -58.104484403120694, -29.155738128917797 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.107409301498031, -29.159850697222065 ], [ -58.107579358482674, -29.160779254726972 ], [ -58.105327505004929, -29.161167647115384 ], [ -58.104133894184649, -29.153467810100686 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.106853988357059, -29.160907308104534 ], [ -58.107046470438561, -29.161846463320206 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.105327213011563, -29.161165964220867 ], [ -58.105469238625091, -29.162056976516695 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.107332390423679, -29.159752731059804 ], [ -58.105160893543093, -29.160062795428104 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.107197839842428, -29.158691977456556 ], [ -58.104996442832679, -29.158975934110479 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.111410020538521, -29.157004540684376 ], [ -58.104824517089966, -29.157885797389969 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.068207023986865, -28.23695114355219 ], [ -58.070006205643125, -28.237365917156186 ], [ -58.07400656002622, -28.232973063742374 ], [ -58.065850124989488, -28.23098524452158 ], [ -58.061178336872359, -28.236939019376443 ], [ -58.064301553982602, -28.237640943072211 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.072031371468817, -28.235145902423792 ], [ -58.070217703647842, -28.234714528866519 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070049664137272, -28.234501393950449 ], [ -58.071902444602934, -28.23245936119973 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.068047676175134, -28.233942391369553 ], [ -58.069822231351431, -28.231952675772451 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.067533417328178, -28.234073846577747 ], [ -58.06407267258033, -28.233251929801334 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.065148994617843, -28.236229433637412 ], [ -58.062276388156995, -28.235541539360206 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.06781155169049, -28.231462579770465 ], [ -58.06273849681105, -28.237031545946049 ], [ -58.062749361434591, -28.237293172363795 ] ] ] } }
+]
+}

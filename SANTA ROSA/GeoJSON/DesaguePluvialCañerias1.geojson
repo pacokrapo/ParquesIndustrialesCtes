@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"name": "DesaguePluvialCañerias1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070240803638988, -28.234689115976842 ], [ -58.069906152314175, -28.234651100180269 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070124298951413, -28.234487632100713 ], [ -58.069905193427871, -28.234649832986829 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070025533660711, -28.234455529812774 ], [ -58.069905193427871, -28.234648565793353 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.069902796212077, -28.234651944975901 ], [ -58.067954339214985, -28.236867609691032 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.068103446037355, -28.236700765889758 ], [ -58.067955298101296, -28.236869299247182 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.068218032952295, -28.236918718752637 ], [ -58.06795673643078, -28.236869299247182 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.0680075574056, -28.236661061250519 ], [ -58.067953859771812, -28.236867609691032 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.067955298101296, -28.236872255970376 ], [ -58.070012948277807, -28.237371835416091 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070054779693422, -28.237216080079993 ], [ -58.070013187999393, -28.237371624222572 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070176558255724, -28.237255784512691 ], [ -58.070017383127038, -28.237368984303515 ], [ -58.07001342772098, -28.237371624222572 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070015105772029, -28.237371941012857 ], [ -58.070142397930674, -28.237408477485847 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070013187999393, -28.237373208173977 ], [ -58.070140719879618, -28.237409744646538 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070141678765935, -28.237410483823592 ], [ -58.069062810861595, -28.238581858950507 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.069062812412533, -28.238581861064482 ], [ -58.070142099156634, -28.237410489417961 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.070142346369508, -28.23741056861552 ], [ -58.069062814109806, -28.238581862482388 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.069062809193639, -28.238581860884011 ], [ -58.067723187015261, -28.24002440448951 ], [ -58.06733943185214, -28.240438981071165 ], [ -58.0673316120237, -28.240446589852503 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.06906280313931, -28.238581863103636 ], [ -58.067324487615345, -28.240444327825852 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -58.06906280313931, -28.23858185667719 ], [ -58.069062434761193, -28.238582374006228 ], [ -58.067327911221831, -28.240444602027569 ] ] ] } }
+]
+}
