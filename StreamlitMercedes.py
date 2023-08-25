@@ -5,7 +5,26 @@ import streamlit as st
 from streamlit_folium import folium_static
 import pandas as pd
 
-
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f0f0; /* Cambiar el color de fondo */
+    }
+    .stButton button {
+        background-color: #3498db; /* Cambiar el color de los botones no seleccionados */
+        color: white; /* Cambiar el color del texto en los botones no seleccionados */
+    }
+    .stButton button:hover {
+        background-color: #2980b9; /* Cambiar el color de los botones al pasar el cursor */
+    }
+    .stButton button:checked {
+        background-color: #e74c3c; /* Cambiar el color de los botones seleccionados */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 def main():
 
@@ -17,7 +36,7 @@ def main():
     Parcela = gpd.read_file("./MERCEDES/GeoJSON/Parcela.geojson")
     SuperficieCubierta = gpd.read_file("./MERCEDES/GeoJSON/SuperficieCubierta.geojson")
     CirculacionPeatonal = gpd.read_file("./MERCEDES/GeoJSON/CirculacionPeatonal.geojson")
-    
+
     st.title("Mapa Parque Industrial de Mercedes")
 
     mapa = folium.Map(location=[-29.156961406503907, -58.108771037734989], zoom_start=16)
