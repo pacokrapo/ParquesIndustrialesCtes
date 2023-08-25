@@ -5,27 +5,6 @@ import streamlit as st
 from streamlit_folium import folium_static
 import pandas as pd
 
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #c1e1c5; /* Cambiar el color de fondo a verde claro pastel */
-    }
-    .stButton button {
-        background-color: #006400; /* Cambiar el color de los botones no seleccionados a verde oscuro */
-        color: white; /* Cambiar el color del texto en los botones no seleccionados */
-    }
-    .stButton button:hover {
-        background-color: #004d00; /* Cambiar el color de los botones al pasar el cursor a un tono más oscuro de verde */
-    }
-    .stButton button:checked {
-        background-color: #228B22; /* Cambiar el color de los botones seleccionados a verde bosque */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 def Ituzaingo():
 
     Perimetro = gpd.read_file("./ITUZAINGO/GeoJSON/Perimetro.geojson")
