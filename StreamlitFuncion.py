@@ -43,18 +43,18 @@ def main():
         ("Parcelas", Parcelas, {'color': 'orange', 'fillColor': 'yellow', 'weight': 2}),
         ("SuperficieCubierta", SuperficieCubierta, {'color': 'blue', 'fillColor': 'blue', 'weight': 2}),
         ("CirculacionPeatonal", CirculacionPeatonal, {'color': 'green', 'fillColor': 'green', 'weight': 0.5}),
-        ("DesaguePluvialBDT1", DesaguePluvialBDT1, {'color': 'purple', 'fillColor': 'purple', 'weight': 0.5}),
-        ("DesaguePluvialBDT2", DesaguePluvialBDT2, {'color': 'purple', 'fillColor': 'purple', 'weight': 0.5}),
-        ("DesaguePluvialCañerias1", DesaguePluvialCañerias1, {'color': 'purple', 'fillColor': 'purple', 'weight': 0.5}),
-        ("DesaguePluvialCañerias2", DesaguePluvialCañerias2, {'color': 'purple', 'fillColor': 'purple', 'weight': 0.5}),
-        ("RedDeAguaCañerias", RedDeAguaCañerias, {'color': 'cyan', 'fillColor': 'cyan', 'weight': 0.5}),
-        ("RedDeAguaHidrante", RedDeAguaHidrante, {'color': 'cyan', 'fillColor': 'cyan', 'weight': 0.5}),
-        ("RedDeAguaTanques", RedDeAguaTanques, {'color': 'cyan', 'fillColor': 'cyan', 'weight': 0.5}),
-        ("RedDeAguaVE", RedDeAguaVE, {'color': 'cyan', 'fillColor': 'cyan', 'weight': 0.5}),
+        ("DesaguePluvialBDT1", DesaguePluvialBDT1, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("DesaguePluvialBDT2", DesaguePluvialBDT2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("DesaguePluvialCañerias1", DesaguePluvialCañerias1, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("DesaguePluvialCañerias2", DesaguePluvialCañerias2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("RedDeAguaCañerias", RedDeAguaCañerias, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
+        ("RedDeAguaHidrante", RedDeAguaHidrante, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
+        ("RedDeAguaTanques", RedDeAguaTanques, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
+        ("RedDeAguaVE", RedDeAguaVE, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
         ("Residuos", Residuos, {'color': 'orange', 'fillColor': 'green', 'weight': 2}),
-        ("TendidoElectricoCircuito1", TendidoElectricoCircuito1, {'color': 'pink', 'fillColor': 'pink', 'weight': 0.5}),
-        ("TendidoElectricoCircuito2", TendidoElectricoCircuito2, {'color': 'pink', 'fillColor': 'pink', 'weight': 0.5}),
-        ("TendidoElectricoCircuito3", TendidoElectricoCircuito3, {'color': 'pink', 'fillColor': 'pink', 'weight': 0.5}),
+        ("TendidoElectricoCircuito1", TendidoElectricoCircuito1, {'color': 'orange', 'fillColor': 'transparent', 'weight': 2}),
+        ("TendidoElectricoCircuito2", TendidoElectricoCircuito2, {'color': 'orange', 'fillColor': 'transparent', 'weight': 2}),
+        ("TendidoElectricoCircuito3", TendidoElectricoCircuito3, {'color': 'orange', 'fillColor': 'transparent', 'weight': 2}),
         ("Vegetacion", Vegetacion, {'color': 'green', 'fillColor': 'green', 'weight': 0.5}),
     ]
 
@@ -86,21 +86,25 @@ def main():
     "CirculacionPeatonal",
     "Empresas",
     "Madera",
-    "Residuos",
+    "Residuos"
     #"Vegetacion",
-    "DesaguePluvialBDT1",
+
+    ]
+    DesaguePluvial = ["DesaguePluvialBDT1",
     "DesaguePluvialBDT2",
     "DesaguePluvialCañerias1",
-    "DesaguePluvialCañerias2",
-    "RedDeAguaCañerias",
+    "DesaguePluvialCañerias2"]
+    TendidoElectrico = ["TendidoElectricoCircuito1",
+    "TendidoElectricoCircuito2",
+    "TendidoElectricoCircuito3"]
+    RedDeAgua = ["RedDeAguaCañerias",
     "RedDeAguaHidrante",
     "RedDeAguaTanques",
-    "RedDeAguaVE",
-    "TendidoElectricoCircuito1",
-    "TendidoElectricoCircuito2",
-    "TendidoElectricoCircuito3",
-    ]
+    "RedDeAguaVE"]
+
     elementos_seleccionados = []
+
+
 
     elementos_predeterminados = ["Perimetro", "CallePrincipal", "Parcelas", "Ripio", "SuperficieCubierta", "CirculacionPeatonal", "Empresas"]
 
@@ -110,11 +114,40 @@ def main():
             seleccionado = st.sidebar.checkbox(elemento, value=True)
         else:
             seleccionado = st.sidebar.checkbox(elemento, value=False)
-
         if seleccionado:
-            elementos_seleccionados.append(elemento)
+           elementos_seleccionados.append(elemento)
         elif elemento in elementos_seleccionados:
             elementos_seleccionados.remove(elemento)
+
+    DesagueBarra = st.sidebar.checkbox("Desague Pluvial")
+    if DesagueBarra:
+        for elemento in DesaguePluvial:
+            seleccionado = st.sidebar.checkbox(elemento)
+
+            if seleccionado:
+                elementos_seleccionados.append(elemento)
+            elif elemento in elementos_seleccionados:
+                elementos_seleccionados.remove(elemento)
+
+    TendidoBarra = st.sidebar.checkbox("Tendido Electrico")
+    if TendidoBarra:
+        for elemento in TendidoElectrico:
+            seleccionado = st.sidebar.checkbox(elemento)
+
+            if seleccionado:
+              elementos_seleccionados.append(elemento)
+            elif elemento in elementos_seleccionados:
+                elementos_seleccionados.remove(elemento)
+    
+    AguaBarra = st.sidebar.checkbox("Red de Agua")
+    if AguaBarra:
+        for elemento in RedDeAgua:
+            seleccionado = st.sidebar.checkbox(elemento)
+
+            if seleccionado:
+              elementos_seleccionados.append(elemento)
+            elif elemento in elementos_seleccionados:
+                elementos_seleccionados.remove(elemento)
     
     folium_layers = {}
     for nombre, capa, estilo in capas:
