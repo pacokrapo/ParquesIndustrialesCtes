@@ -41,20 +41,20 @@ def main():
         ("Ripio", Ripio, {'color': 'brown', 'fillColor': 'brown', 'weight': 2}),
         ("Madera", Madera, {'color': 'brown', 'fillColor': 'brown', 'weight': 0.5}),
         ("Parcelas", Parcelas, {'color': 'orange', 'fillColor': 'yellow', 'weight': 2}),
-        ("SuperficieCubierta", SuperficieCubierta, {'color': 'blue', 'fillColor': 'blue', 'weight': 2}),
+        ("SuperficieCubierta", SuperficieCubierta, {'color': 'grey', 'fillColor': 'blue', 'weight': 2}),
         ("CirculacionPeatonal", CirculacionPeatonal, {'color': 'green', 'fillColor': 'green', 'weight': 0.5}),
         ("DesaguePluvialBDT1", DesaguePluvialBDT1, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
         ("DesaguePluvialBDT2", DesaguePluvialBDT2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
-        ("DesaguePluvialCañerias1", DesaguePluvialCañerias1, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("DesaguePluvialCañerias1", DesaguePluvialCañerias1, {'color': 'blue', 'fillColor': 'purple', 'weight': 2}),
         ("DesaguePluvialCañerias2", DesaguePluvialCañerias2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
         ("RedDeAguaCañerias", RedDeAguaCañerias, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
         ("RedDeAguaHidrante", RedDeAguaHidrante, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
-        ("RedDeAguaTanques", RedDeAguaTanques, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
+        ("RedDeAguaTanques", RedDeAguaTanques, {'color': 'red', 'fillColor': 'blue', 'weight': 2}),
         ("RedDeAguaVE", RedDeAguaVE, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
         ("Residuos", Residuos, {'color': 'orange', 'fillColor': 'green', 'weight': 2}),
-        ("TendidoElectricoCircuito1", TendidoElectricoCircuito1, {'color': 'orange', 'fillColor': 'transparent', 'weight': 2}),
-        ("TendidoElectricoCircuito2", TendidoElectricoCircuito2, {'color': 'orange', 'fillColor': 'transparent', 'weight': 2}),
-        ("TendidoElectricoCircuito3", TendidoElectricoCircuito3, {'color': 'orange', 'fillColor': 'transparent', 'weight': 2}),
+        ("TendidoElectricoCircuito1", TendidoElectricoCircuito1, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
+        ("TendidoElectricoCircuito2", TendidoElectricoCircuito2, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
+        ("TendidoElectricoCircuito3", TendidoElectricoCircuito3, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
         ("Vegetacion", Vegetacion, {'color': 'green', 'fillColor': 'green', 'weight': 0.5}),
     ]
 
@@ -119,28 +119,32 @@ def main():
         elif elemento in elementos_seleccionados:
             elementos_seleccionados.remove(elemento)
 
+    
     DesagueBarra = st.sidebar.checkbox("Desague Pluvial")
     if DesagueBarra:
+        st.sidebar.markdown('<div style="margin: 10px 0;"></div>', unsafe_allow_html=True)
         for elemento in DesaguePluvial:
             seleccionado = st.sidebar.checkbox(elemento)
-
             if seleccionado:
                 elementos_seleccionados.append(elemento)
             elif elemento in elementos_seleccionados:
                 elementos_seleccionados.remove(elemento)
+        st.sidebar.markdown('<div style="margin: 10px 0;"></div>', unsafe_allow_html=True)
 
     TendidoBarra = st.sidebar.checkbox("Tendido Electrico")
     if TendidoBarra:
-        for elemento in TendidoElectrico:
+        st.sidebar.markdown('<div style="margin: 10px 0;"></div>', unsafe_allow_html=True)
+        for elemento in TendidoElectrico:            
             seleccionado = st.sidebar.checkbox(elemento)
-
             if seleccionado:
               elementos_seleccionados.append(elemento)
             elif elemento in elementos_seleccionados:
                 elementos_seleccionados.remove(elemento)
-    
+        st.sidebar.markdown('<div style="margin: 10px 0;"></div>', unsafe_allow_html=True)
+
     AguaBarra = st.sidebar.checkbox("Red de Agua")
     if AguaBarra:
+        st.sidebar.markdown('<div style="margin: 10px 0;"></div>', unsafe_allow_html=True)
         for elemento in RedDeAgua:
             seleccionado = st.sidebar.checkbox(elemento)
 
@@ -148,6 +152,7 @@ def main():
               elementos_seleccionados.append(elemento)
             elif elemento in elementos_seleccionados:
                 elementos_seleccionados.remove(elemento)
+        st.sidebar.markdown('<div style="margin: 10px 0;"></div>', unsafe_allow_html=True)
     
     folium_layers = {}
     for nombre, capa, estilo in capas:
