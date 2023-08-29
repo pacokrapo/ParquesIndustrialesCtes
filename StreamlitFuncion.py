@@ -49,7 +49,7 @@ def main():
         ("DesaguePluvialCañerias2", DesaguePluvialCañerias2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
         ("RedDeAguaCañerias", RedDeAguaCañerias, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
         ("RedDeAguaHidrante", RedDeAguaHidrante, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
-        ("RedDeAguaTanques", RedDeAguaTanques, {'color': 'red', 'fillColor': 'blue', 'weight': 2}),
+        ("RedDeAguaTanques", RedDeAguaTanques, {'color': 'blue', 'fillColor': 'blue', 'weight': 5}),
         ("RedDeAguaVE", RedDeAguaVE, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
         ("Residuos", Residuos, {'color': 'orange', 'fillColor': 'green', 'weight': 2}),
         ("TendidoElectricoCircuito1", TendidoElectricoCircuito1, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
@@ -193,20 +193,22 @@ def main():
     if "Empresas" in elementos_seleccionados:
         for feature in empresas_features:
             nombre = feature['properties']['EMPRESA']
-            estilo = {'color': 'red', 'fillColor': 'transparent', 'weight': 2}
+            latitud = feature['geometry']['coordinates'][1]
+            longitud = feature['geometry']['coordinates'][0]
             
             # Verificar si hay geometría antes de continuar
             if feature['geometry'] is not None:
                 popup_content = f"Empresa: {nombre}"
-                
-                geojson_layer = folium.GeoJson(
-                    feature,
-                    name=nombre,
-                    style_function=lambda x: estilo,
-                    tooltip=folium.GeoJsonTooltip(fields=['EMPRESA'], labels=True),
+
+                icon = folium.Icon(icon="glyphicon-home", color="green")  # Cambia el icono y color según tu preferencia
+        
+                marker = folium.Marker(
+                    location=[latitud, longitud],
+                    icon=icon,
                     popup=folium.Popup(html=popup_content, parse_html=True, max_width=300)
                 )
-                geojson_layer.add_to(mapa)
+                
+                marker.add_to(mapa)
 
 
 
