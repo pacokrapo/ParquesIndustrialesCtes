@@ -239,7 +239,6 @@ def main():
     access_key = "subseindustria2023"
     user_input = st.text_input("Ingrese la clave de acceso:", type="password")
     if user_input == access_key:
-        st.title("Bienvenido a la aplicación segura")
         seleccion = st.radio("Selecciona un parque:", ("Ituzaingó", "Mercedes"))
         if seleccion == "Ituzaingó":
             Ituzaingo()
