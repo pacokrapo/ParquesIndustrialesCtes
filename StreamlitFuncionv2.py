@@ -58,12 +58,6 @@ def main():
         ("Vegetacion", Vegetacion, {'color': 'green', 'fillColor': 'green', 'weight': 0.5}),
     ]
 
-    pinesdic = [#("Empresas": {'color': 'green', 'fillColor': 'green', 'weight': 2}),
-        ("DesaguePluvialBDT1", DesaguePluvialBDT1, {'color': 'blue', 'fillColor': 'cyan', 'weight': 2}),
-        ("DesaguePluvialBDT2", DesaguePluvialBDT2,  {'color': 'blue', 'fillColor': 'cyan', 'weight': 2}),
-        ("RedDeAguaHidrante", RedDeAguaHidrante, {'color': 'blue', 'fillColor': 'blue', 'weight': 2}),
-        ("RedDeAguaVE",RedDeAguaVE, {'color': 'blue', 'fillColor': 'blue', 'weight': 2})]
-
     with open('./SANTA ROSA/GeoJSON/Empresas.geojson', 'r') as geojson_file:
         data = json.load(geojson_file)
         empresas_features = data['features']
@@ -107,8 +101,6 @@ def main():
     "RedDeAguaHidrante",
     "RedDeAguaTanques",
     "RedDeAguaVE"]
-
-    pines = ["Empresas", "DesaguePluvialBDT1", "DesaguePluvialBDT2", "RedDeAguaHidrante", "RedDeAguaVE"]
 
     elementos_seleccionados = []
 
@@ -164,31 +156,13 @@ def main():
     
     folium_layers = {}
     for nombre, capa, estilo in capas:
-        if nombre in elementos_seleccionados and nombre not in pines:
+        if nombre in elementos_seleccionados:
             folium_layer = folium.GeoJson(capa, name=nombre, style_function=lambda feature, style=estilo: style)
             folium_layer.add_to(mapa)
             folium_layers[nombre] = folium_layer
         else:
             continue
 
-    for nombre, data, estilo in pinesdic:
-
-        for point in data["geometry"]:
-            if nombre in elementos_seleccionados:
-                if point is not None:
-                    coords = [point.x, point.y]
-                    
-                    folium.Marker(
-                        location=[coords[1], coords[0]],
-                        popup=nombre,
-                        icon=folium.Icon(
-                            color=estilo['color'],
-                            icon_color=estilo['fillColor'],
-                            icon="glyphicon-tint",
-                            prefix="glyphicon",
-                        ),
-                        weight=estilo['weight'],
-                    ).add_to(mapa)
 
     if "Empresas" in elementos_seleccionados:
         for feature in empresas_features:

@@ -235,15 +235,16 @@ def Mercedes():
     st.table(df2)
 
 def main():
-    #st.title("Seleccione el Parque Industrial")
-    
-    # Agregar opciones para seleccionar entre Ituzaingó y Mercedes
-    seleccion = st.radio("Selecciona un parque:", ("Ituzaingó", "Mercedes"))
-    
-    # Ejecutar la función correspondiente según la selección
-    if seleccion == "Ituzaingó":
-        Ituzaingo()
-    elif seleccion == "Mercedes":
-        Mercedes()
+    # La clave de acceso única
+    access_key = "subseindustria2023"
+    user_input = st.text_input("Ingrese la clave de acceso:", type="password")
+    if user_input == access_key:
+        st.title("Bienvenido a la aplicación segura")
+        seleccion = st.radio("Selecciona un parque:", ("Ituzaingó", "Mercedes"))
+        if seleccion == "Ituzaingó":
+            Ituzaingo()
+        elif seleccion == "Mercedes":
+            Mercedes()
+
 if __name__ == "__main__":
     main()
