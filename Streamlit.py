@@ -34,7 +34,7 @@ def Ituzaingo():
         ("Vegetacion", Vegetacion, {'color': 'green', 'fillColor': 'green', 'weight': 0.5})
     ]
 
-    with open('./ITUZAINGO/GeoJSON/Empresas.geojson', 'r') as geojson_file:
+    with open('./ITUZAINGO/GeoJSON/Empresas.geojson', 'r', encoding="utf-8") as geojson_file:
         data = json.load(geojson_file)
         empresas_features = data['features']
 
@@ -94,34 +94,45 @@ def Ituzaingo():
                 marker.add_to(mapa)
 
 
+
     empresas_nombres = [feature['properties']['EMPRESA'] for feature in empresas_features]
-    empresas_nombres_ordenadas = sorted(empresas_nombres)
 
-    selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_ordenadas)
+    empresas_nombres_unicos = list(set(empresas_nombres))
 
-    selected_feature = next(feature for feature in empresas_features if feature['properties']['EMPRESA'] == selected_marker)
+    empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None]
 
-    # Obtener la ubicación de la empresa seleccionada
-    latitude = selected_feature['geometry']['coordinates'][1]
-    longitude = selected_feature['geometry']['coordinates'][0]
+    selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_unicos)
 
-    # Cambiar el color del pin según la empresa seleccionada
-    icon = folium.Icon(color="red")
+    selected_features = [feature for feature in empresas_features if feature['properties']['EMPRESA'] == selected_marker]
 
-    # Agregar el marcador al mapa con el ícono personalizado
-    marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + selected_marker, icon=icon)
-    marker.add_to(mapa)
+    for feature in selected_features:
+        latitude = feature['geometry']['coordinates'][1]
+        longitude = feature['geometry']['coordinates'][0]
+        icon = folium.Icon(color="red")
+        marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + feature['properties']['EMPRESA'], icon=icon)
+        marker.add_to(mapa)
 
     folium_static(mapa)
 
     st.header("Información de la Empresa")
 
-    df = pd.DataFrame(selected_feature)
-    df2 = df["properties"]
+    data_dict = {}
 
-    df2.name = "Datos"
-    df2.dropna(inplace=True)
-    st.table(df2)
+    # Llenar el diccionario con los datos de cada lote
+    for index, lote in enumerate(selected_features):
+        properties = lote['properties']
+        for key, value in properties.items():
+            if key not in data_dict:
+                data_dict[key] = [None] * len(selected_features)
+            data_dict[key][index] = value
+
+    # Crear el DataFrame a partir del diccionario
+    df = pd.DataFrame(data_dict)
+
+    df.dropna(axis=1, how='all', inplace=True)
+
+    # Mostrar el DataFrame
+    st.write(df)
 
 def Mercedes():
 
@@ -211,36 +222,44 @@ def Mercedes():
             
 
 
-
-
     empresas_nombres = [feature['properties']['empresa'] for feature in empresas_features]
-    empresas_nombres_ordenadas = sorted(empresas_nombres)
 
-    selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_ordenadas)
+    empresas_nombres_unicos = list(set(empresas_nombres))
 
-    selected_feature = next(feature for feature in empresas_features if feature['properties']['empresa'] == selected_marker)
+    empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None and empresa not in ["area de servicios", "AREA DE RESIDUOS"]]
 
-    # Obtener la ubicación de la empresa seleccionada
-    latitude = selected_feature['geometry']['coordinates'][1]
-    longitude = selected_feature['geometry']['coordinates'][0]
+    selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_unicos)
 
-    # Cambiar el color del pin según la empresa seleccionada
-    icon = folium.Icon(color="red")
+    selected_features = [feature for feature in empresas_features if feature['properties']['empresa'] == selected_marker]
 
-    # Agregar el marcador al mapa con el ícono personalizado
-    marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + selected_marker, icon=icon)
-    marker.add_to(mapa)
+    for feature in selected_features:
+        latitude = feature['geometry']['coordinates'][1]
+        longitude = feature['geometry']['coordinates'][0]
+        icon = folium.Icon(color="red")
+        marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + feature['properties']['empresa'], icon=icon)
+        marker.add_to(mapa)
 
     folium_static(mapa)
 
     st.header("Información de la Empresa")
 
-    df = pd.DataFrame(selected_feature)
-    df2 = df["properties"]
+    data_dict = {}
 
-    df2.name = "Datos"
-    df2.dropna(inplace=True)
-    st.table(df2)
+    # Llenar el diccionario con los datos de cada lote
+    for index, lote in enumerate(selected_features):
+        properties = lote['properties']
+        for key, value in properties.items():
+            if key not in data_dict:
+                data_dict[key] = [None] * len(selected_features)
+            data_dict[key][index] = value
+
+    # Crear el DataFrame a partir del diccionario
+    df = pd.DataFrame(data_dict)
+
+    df.dropna(axis=1, how='all', inplace=True)
+
+    # Mostrar el DataFrame
+    st.write(df)
 
 def SantaRosa():
 
@@ -300,7 +319,7 @@ def SantaRosa():
         ("Hidrantes", Hidrantes, {'color': 'blue', 'fillColor': 'blue', 'weight': 2, 'icon': 'glyphicon-fire'}),
         ("VE",VE, {'color': 'blue', 'fillColor': 'blue', 'weight': 2, 'icon': 'glyphicon-tint'})]
 
-    with open('./SANTA ROSA/GeoJSON/Empresas.geojson', 'r') as geojson_file:
+    with open('./SANTA ROSA/GeoJSON/Empresas.geojson', 'r', encoding="utf-8") as geojson_file:
         data = json.load(geojson_file)
         empresas_features = data['features']
 
@@ -450,33 +469,43 @@ def SantaRosa():
 
 
     empresas_nombres = [feature['properties']['EMPRESA'] for feature in empresas_features]
-    empresas_nombres_ordenadas = sorted([nombre for nombre in empresas_nombres if nombre is not None])
 
-    selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_ordenadas)
+    empresas_nombres_unicos = list(set(empresas_nombres))
 
-    selected_feature = next(feature for feature in empresas_features if feature['properties']['EMPRESA'] == selected_marker)
+    empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None]
 
-    # Obtener la ubicación de la empresa seleccionada
-    latitude = selected_feature['geometry']['coordinates'][1]
-    longitude = selected_feature['geometry']['coordinates'][0]
+    selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_unicos)
 
-    # Cambiar el color del pin según la empresa seleccionada
-    icon = folium.Icon(color="red")
+    selected_features = [feature for feature in empresas_features if feature['properties']['EMPRESA'] == selected_marker]
 
-    # Agregar el marcador al mapa con el ícono personalizado
-    marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + selected_marker, icon=icon)
-    marker.add_to(mapa)
+    for feature in selected_features:
+        latitude = feature['geometry']['coordinates'][1]
+        longitude = feature['geometry']['coordinates'][0]
+        icon = folium.Icon(color="red")
+        marker = folium.Marker(location=[latitude, longitude], popup="Empresa seleccionada: " + feature['properties']['EMPRESA'], icon=icon)
+        marker.add_to(mapa)
 
     folium_static(mapa)
 
     st.header("Información de la Empresa")
 
-    df = pd.DataFrame(selected_feature)
-    df2 = df["properties"]
+    data_dict = {}
 
-    df2.name = "Datos"
-    df2.dropna(inplace=True)
-    st.table(df2)
+    # Llenar el diccionario con los datos de cada lote
+    for index, lote in enumerate(selected_features):
+        properties = lote['properties']
+        for key, value in properties.items():
+            if key not in data_dict:
+                data_dict[key] = [None] * len(selected_features)
+            data_dict[key][index] = value
+
+    # Crear el DataFrame a partir del diccionario
+    df = pd.DataFrame(data_dict)
+
+    df.dropna(axis=1, how='all', inplace=True)
+
+    # Mostrar el DataFrame
+    st.write(df)
 
 
 def main():
