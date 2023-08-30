@@ -16,18 +16,18 @@ def main():
     Parcelas = gpd.read_file("./SANTA ROSA/GeoJSON/Parcelas.geojson")
     SuperficieCubierta = gpd.read_file("./SANTA ROSA/GeoJSON/SuperficieCubierta.geojson")
     CirculacionPeatonal = gpd.read_file("./SANTA ROSA/GeoJSON/CirculacionPeatonal.geojson")
-    DesaguePluvialBDT1 = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialBDT1.geojson")
-    DesaguePluvialBDT2 = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialBDT2.geojson")
-    DesaguePluvialCañerias1 = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialCañerias1.geojson")
-    DesaguePluvialCañerias2 = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialCañerias2.geojson")
-    RedDeAguaCañerias = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaCañerias.geojson")
-    RedDeAguaHidrante = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaHidrante.geojson")
-    RedDeAguaTanques = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaTanques.geojson")
-    RedDeAguaVE = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaVE.geojson")
+    BDT1 = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialBDT1.geojson")
+    BDT2 = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialBDT2.geojson")
+    CañeriasD = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialCañerias1.geojson")
+    #DesaguePluvialCañerias2 = gpd.read_file("./SANTA ROSA/GeoJSON/DesaguePluvialCañerias2.geojson")
+    CañeriasRA = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaCañerias.geojson")
+    Hidrantes = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaHidrante.geojson")
+    Tanques = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaTanques.geojson")
+    VE = gpd.read_file("./SANTA ROSA/GeoJSON/RedDeAguaVE.geojson")
     Residuos = gpd.read_file("./SANTA ROSA/GeoJSON/Residuos.geojson")
-    TendidoElectricoCircuito1 = gpd.read_file("./SANTA ROSA/GeoJSON/TendidoElectricoCircuitoEtapa1.geojson")
-    TendidoElectricoCircuito2 = gpd.read_file("./SANTA ROSA/GeoJSON/TendidoElectricoCircuitoEtapa2.geojson")
-    TendidoElectricoCircuito3 = gpd.read_file("./SANTA ROSA/GeoJSON/TendidoElectricoCircuitoEtapa3.geojson")
+    Circuito1 = gpd.read_file("./SANTA ROSA/GeoJSON/TendidoElectricoCircuitoEtapa1.geojson")
+    Circuito2 = gpd.read_file("./SANTA ROSA/GeoJSON/TendidoElectricoCircuitoEtapa2.geojson")
+    Circuito3 = gpd.read_file("./SANTA ROSA/GeoJSON/TendidoElectricoCircuitoEtapa3.geojson")
     Vegetacion = gpd.read_file("./SANTA ROSA/GeoJSON/Vegetacion.geojson")
 
     st.title("Mapa Parque Industrial de Santa Rosa")
@@ -43,26 +43,26 @@ def main():
         ("Parcelas", Parcelas, {'color': 'orange', 'fillColor': 'yellow', 'weight': 2}),
         ("SuperficieCubierta", SuperficieCubierta, {'color': 'grey', 'fillColor': 'blue', 'weight': 2}),
         ("CirculacionPeatonal", CirculacionPeatonal, {'color': 'green', 'fillColor': 'green', 'weight': 0.5}),
-        ("DesaguePluvialBDT1", DesaguePluvialBDT1, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
-        ("DesaguePluvialBDT2", DesaguePluvialBDT2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
-        ("DesaguePluvialCañerias1", DesaguePluvialCañerias1, {'color': 'blue', 'fillColor': 'purple', 'weight': 2}),
-        ("DesaguePluvialCañerias2", DesaguePluvialCañerias2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
-        ("RedDeAguaCañerias", RedDeAguaCañerias, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
-        ("RedDeAguaHidrante", RedDeAguaHidrante, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
-        ("RedDeAguaTanques", RedDeAguaTanques, {'color': 'blue', 'fillColor': 'blue', 'weight': 5}),
-        ("RedDeAguaVE", RedDeAguaVE, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
+        ("BDT1", BDT1, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("BDT2", BDT2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("CañeriasD", CañeriasD, {'color': 'blue', 'fillColor': 'purple', 'weight': 2}),
+        #("DesaguePluvialCañerias2", DesaguePluvialCañerias2, {'color': 'black', 'fillColor': 'purple', 'weight': 2}),
+        ("CañeriasRA", CañeriasRA, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
+        ("Hidrantes", Hidrantes, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
+        ("Tanques", Tanques, {'color': 'blue', 'fillColor': 'blue', 'weight': 5}),
+        ("VE", VE, {'color': 'cyan', 'fillColor': 'blue', 'weight': 2}),
         ("Residuos", Residuos, {'color': 'orange', 'fillColor': 'green', 'weight': 2}),
-        ("TendidoElectricoCircuito1", TendidoElectricoCircuito1, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
-        ("TendidoElectricoCircuito2", TendidoElectricoCircuito2, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
-        ("TendidoElectricoCircuito3", TendidoElectricoCircuito3, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
+        ("Circuito1", Circuito1, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
+        ("Circuito2", Circuito2, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
+        ("Circuito3", Circuito3, {'color': 'black', 'fillColor': 'transparent', 'weight': 2}),
         ("Vegetacion", Vegetacion, {'color': 'green', 'fillColor': 'green', 'weight': 0.5}),
     ]
 
     pinesdic = [#("Empresas": {'color': 'green', 'fillColor': 'green', 'weight': 2}),
-        ("DesaguePluvialBDT1", DesaguePluvialBDT1, {'color': 'blue', 'fillColor': 'cyan', 'weight': 2}),
-        ("DesaguePluvialBDT2", DesaguePluvialBDT2,  {'color': 'blue', 'fillColor': 'cyan', 'weight': 2}),
-        ("RedDeAguaHidrante", RedDeAguaHidrante, {'color': 'blue', 'fillColor': 'blue', 'weight': 2}),
-        ("RedDeAguaVE",RedDeAguaVE, {'color': 'blue', 'fillColor': 'blue', 'weight': 2})]
+        ("BDT1", BDT1, {'color': 'blue', 'fillColor': 'cyan', 'weight': 2, 'icon': 'glyphicon-cloud'}),
+        ("BDT2", BDT2,  {'color': 'blue', 'fillColor': 'blue', 'weight': 2, 'icon': 'glyphicon-cloud'}),
+        ("Hidrantes", Hidrantes, {'color': 'blue', 'fillColor': 'blue', 'weight': 2, 'icon': 'glyphicon-fire'}),
+        ("VE",VE, {'color': 'blue', 'fillColor': 'blue', 'weight': 2, 'icon': 'glyphicon-tint'})]
 
     with open('./SANTA ROSA/GeoJSON/Empresas.geojson', 'r') as geojson_file:
         data = json.load(geojson_file)
@@ -96,19 +96,20 @@ def main():
     #"Vegetacion",
 
     ]
-    DesaguePluvial = ["DesaguePluvialBDT1",
-    "DesaguePluvialBDT2",
-    "DesaguePluvialCañerias1",
-    "DesaguePluvialCañerias2"]
-    TendidoElectrico = ["TendidoElectricoCircuito1",
-    "TendidoElectricoCircuito2",
-    "TendidoElectricoCircuito3"]
-    RedDeAgua = ["RedDeAguaCañerias",
-    "RedDeAguaHidrante",
-    "RedDeAguaTanques",
-    "RedDeAguaVE"]
+    DesaguePluvial = ["BDT1",
+    "BDT2",
+    "CañeriasD",
+    #"DesaguePluvialCañerias2"
+    ]
+    TendidoElectrico = ["Circuito1",
+    "Circuito2",
+    "Circuito3"]
+    RedDeAgua = ["CañeriasRA",
+    "Hidrantes",
+    "Tanques",
+    "VE"]
 
-    pines = ["Empresas", "DesaguePluvialBDT1", "DesaguePluvialBDT2", "RedDeAguaHidrante", "RedDeAguaVE"]
+    pines = ["Empresas", "BDT1", "BDT2", "Hidrantes", "VE"]
 
     elementos_seleccionados = []
 
@@ -184,7 +185,7 @@ def main():
                         icon=folium.Icon(
                             color=estilo['color'],
                             icon_color=estilo['fillColor'],
-                            icon="glyphicon-tint",
+                            icon=estilo["icon"],
                             prefix="glyphicon",
                         ),
                         weight=estilo['weight'],
