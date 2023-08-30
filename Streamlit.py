@@ -99,6 +99,8 @@ def Ituzaingo():
 
     empresas_nombres_unicos = list(set(empresas_nombres))
 
+    empresas_nombres_unicos = sorted(empresas_nombres_unicos)
+
     empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None]
 
     selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_unicos)
@@ -227,6 +229,8 @@ def Mercedes():
     empresas_nombres = [feature['properties']['empresa'] for feature in empresas_features]
 
     empresas_nombres_unicos = list(set(empresas_nombres))
+
+    empresas_nombres_unicos = sorted(empresas_nombres_unicos)
 
     empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None and empresa not in ["area de servicios", "AREA DE RESIDUOS"]]
 
@@ -477,6 +481,8 @@ def SantaRosa():
     empresas_nombres_unicos = list(set(empresas_nombres))
 
     empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None]
+
+    empresas_nombres_unicos = sorted(empresas_nombres_unicos)
 
     selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_unicos)
 
