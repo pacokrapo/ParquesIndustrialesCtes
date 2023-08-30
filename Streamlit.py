@@ -131,6 +131,8 @@ def Ituzaingo():
 
     df.dropna(axis=1, how='all', inplace=True)
 
+    df = df.fillna("   -")
+
     # Mostrar el DataFrame
     st.write(df)
 
@@ -257,6 +259,8 @@ def Mercedes():
     df = pd.DataFrame(data_dict)
 
     df.dropna(axis=1, how='all', inplace=True)
+
+    df = df.fillna("   -")
 
     # Mostrar el DataFrame
     st.write(df)
@@ -501,6 +505,8 @@ def SantaRosa():
 
     # Crear el DataFrame a partir del diccionario
     df = pd.DataFrame(data_dict)
+
+    df = df.fillna("   -")
 
     df.dropna(axis=1, how='all', inplace=True)
 
