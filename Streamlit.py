@@ -205,15 +205,15 @@ def Mercedes():
     if "Empresas" in elementos_seleccionados:
         if empresas_features is not None:
             for feature in empresas_features:
-                if feature['geometry'] is not None:
+                if feature["properties"]["empresa"] == "AREA DE SERVICIOS":
                     nombre = feature['properties']['empresa']
                     latitud = feature['geometry']['coordinates'][1]
                     longitud = feature['geometry']['coordinates'][0]
                 
                 # Verificar si hay geometría antes de continuar
-                    popup_content = f"Empresa: {nombre}"
+                    popup_content = f"Area de servicios"
 
-                    icon = folium.Icon(icon="glyphicon-home", color="green")  # Cambia el icono y color según tu preferencia
+                    icon = folium.Icon(icon="glyphicon-circle-arrow-down", color="green")  # Cambia el icono y color según tu preferencia
             
                     marker = folium.Marker(
                         location=[latitud, longitud],
@@ -222,6 +222,24 @@ def Mercedes():
                     )
                     
                     marker.add_to(mapa)
+                else:
+                    if feature['geometry'] is not None:
+                        nombre = feature['properties']['empresa']
+                        latitud = feature['geometry']['coordinates'][1]
+                        longitud = feature['geometry']['coordinates'][0]
+                    
+                    # Verificar si hay geometría antes de continuar
+                        popup_content = f"Empresa: {nombre}"
+
+                        icon = folium.Icon(icon="glyphicon-home", color="green")  # Cambia el icono y color según tu preferencia
+                
+                        marker = folium.Marker(
+                            location=[latitud, longitud],
+                            icon=icon,
+                            popup=folium.Popup(html=popup_content, parse_html=True, max_width=300)
+                        )
+                        
+                        marker.add_to(mapa)
 
             
 
@@ -232,7 +250,7 @@ def Mercedes():
 
     empresas_nombres_unicos = sorted(empresas_nombres_unicos)
 
-    empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None and empresa not in ["area de servicios", "AREA DE RESIDUOS"]]
+    empresas_nombres_unicos = [empresa for empresa in empresas_nombres_unicos if empresa is not None and empresa not in ["AREA DE SERVICIOS", "AREA DE RESIDUOS"]]
 
     selected_marker = st.selectbox("Selecciona una empresa:", empresas_nombres_unicos)
 
@@ -461,18 +479,31 @@ def SantaRosa():
             longitud = feature['geometry']['coordinates'][0]
             
             # Verificar si hay geometría antes de continuar
-            if feature['geometry'] is not None:
-                popup_content = f"Empresa: {nombre}"
+            if feature["properties"]["EMPRESA"] is None:
+                if feature['geometry'] is not None:
+                    popup_content = f"Empresa: {nombre}"
 
-                icon = folium.Icon(icon="glyphicon-home", color="green")  # Cambia el icono y color según tu preferencia
-        
-                marker = folium.Marker(
-                    location=[latitud, longitud],
-                    icon=icon,
-                    popup=folium.Popup(html=popup_content, parse_html=True, max_width=300)
-                )
+                    icon = folium.Icon(icon="glyphicon-ok", color="green")  # Cambia el icono y color según tu preferencia
+            
+                    marker = folium.Marker(
+                        location=[latitud, longitud],
+                        icon=icon,
+                        popup=folium.Popup(html="Parcela Disponible", parse_html=True, max_width=300)
+                    )
+                    marker.add_to(mapa)
+            else:
+                if feature['geometry'] is not None:
+                        popup_content = f"Empresa: {nombre}"
+
+                        icon = folium.Icon(icon="glyphicon-home", color="green")  # Cambia el icono y color según tu preferencia
                 
-                marker.add_to(mapa)
+                        marker = folium.Marker(
+                            location=[latitud, longitud],
+                            icon=icon,
+                            popup=folium.Popup(html=popup_content, parse_html=True, max_width=300)
+                        )
+                        
+                        marker.add_to(mapa)
 
 
 
