@@ -7,7 +7,9 @@ Mapas de los parques industriales de la provincia de Corrientes
 
   También utilicé un poco de Pandas para trabajar con algunos datos almacenados en los archivos GeoJSON, específicamente la información de cada parcela y la empresa que la residía en ese momento, y GeoPandas para leer dichos archivos.
 
-Pueden ver el resultado en la siguiente imagen y el proyecto en el siguiente link: 
+  Los datos no están actualizados y pueden presentar errores.
+
+  Pueden ver el resultado en la siguiente imagen y el proyecto en el siguiente link: 
 [Proyecto Parques Industriales Ctes](https://parques-industriales-corrientes.onrender.com/)
 
 ![Imagen del resultado](https://github.com/pacokrapo/ParquesIndustrialesCtes/blob/main/imagenes/Parque%20Santa%20Rosa.png)
