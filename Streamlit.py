@@ -553,16 +553,16 @@ def SantaRosa():
 
 def main():
     # La clave de acceso única
-    access_key = "subseindustria2023"
-    user_input = st.text_input("Ingrese la clave de acceso:", type="password")
-    if user_input == access_key:
-        seleccion = st.radio("Selecciona un parque:", ("Ituzaingó", "Mercedes", "Santa Rosa"))
-        if seleccion == "Ituzaingó":
-            Ituzaingo()
-        elif seleccion == "Mercedes":
-            Mercedes()
-        elif seleccion == "Santa Rosa":
-            SantaRosa()
+    #access_key = "subseindustria2023"
+    #user_input = st.text_input("Ingrese la clave de acceso:", type="password")
+    #if user_input == access_key:
+    seleccion = st.radio("Selecciona un parque:", ("Ituzaingó", "Mercedes", "Santa Rosa"))
+    if seleccion == "Ituzaingó":
+        Ituzaingo()
+    elif seleccion == "Mercedes":
+        Mercedes()
+    elif seleccion == "Santa Rosa":
+        SantaRosa()
 
 if __name__ == "__main__":
     main()
